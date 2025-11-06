@@ -1,0 +1,19 @@
+---
+applications:
+  - name: cf-summarization-a2a
+    disk-quota: 1G
+    health-check-type: port
+    timeout: 180
+    instances: 1
+    memory: 1G
+    default-route: true
+    stack: cflinuxfs4
+    buildpack: https://github.com/yannicklevederpvtl/uv-buildpack.git
+    env:
+      # Start command - runs the A2A server
+      START_COMMAND_OVERRIDE: "uv run python app.py"
+      # A2A base URL will be set automatically by Cloud Foundry
+      # You can override it if needed:
+      # A2A_BASE_URL: "https://your-app-domain.com"
+    services:
+      - tanzu-gpt-oss-120b  # Required: GenAI service for LLM

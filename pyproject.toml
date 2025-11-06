@@ -1,0 +1,29 @@
+[project]
+name = "cf-jupyterlab-to-a2a"
+version = "1.0.0"
+description = "A2A Summarization Agent - Wraps Notebook-Lab4 summarization logic with Google A2A protocol"
+requires-python = ">=3.11"
+dependencies = [
+    # Core dependencies from notebook
+    "httpx",
+    "requests",
+    "cfenv",
+    
+    # LangChain dependencies (from notebook)
+    "langchain-core",
+    "langchain-classic",
+    "langchain-openai",
+    
+    # A2A SDK - Google's Agent-to-Agent protocol SDK with HTTP server support
+    # The [http-server] extra includes starlette and sse-starlette
+    "a2a-sdk[http-server]>=0.1.0",
+    
+    # Server framework
+    "uvicorn",
+    
+    # Python standard utilities
+    "python-dotenv",
+]
+
+[tool.uv]
+dev-dependencies = []
