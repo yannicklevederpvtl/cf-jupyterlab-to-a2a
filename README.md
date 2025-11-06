@@ -19,25 +19,25 @@ This application demonstrates how to:
 └──────────────────────┬──────────────────────────────────┘
                        │
                        ▼
-┌─────────────────────────────────────────────────────────┐
-│              A2A Server (app.py)                        │
+┌────────────────────────────────────────────────────────┐
+│              A2A Server (app.py)                       │
 │  ┌─────────────────────────────────────────────────┐   │
 │  │  Request Handler (DefaultRequestHandler)        │   │
-│  │  - Processes JSON-RPC requests                 │   │
+│  │  - Processes JSON-RPC requests                  │   │
 │  │  - Manages task lifecycle                       │   │
 │  └──────────────┬──────────────────────────────────┘   │
-│                 │                                        │
-│                 ▼                                        │
+│                 │                                      │
+│                 ▼                                      │
 │  ┌─────────────────────────────────────────────────┐   │
-│  │  Agent Executor (SummarizationAgentExecutor)   │   │
+│  │  Agent Executor (SummarizationAgentExecutor)    │   │
 │  │  - Wraps summarization logic                    │   │
 │  │  - Publishes task updates                       │   │
 │  └──────────────┬──────────────────────────────────┘   │
 └─────────────────┼──────────────────────────────────────┘
                   │
                   ▼
-┌─────────────────────────────────────────────────────────┐
-│        Summarizer Module (summarizer.py)                │
+┌────────────────────────────────────────────────────────┐
+│        Summarizer Module (summarizer.py)               │
 │  ┌─────────────────────────────────────────────────┐   │
 │  │  FROM NOTEBOOK: Lab4 Logic                      │   │
 │  │  - LLMChain setup                               │   │
@@ -47,10 +47,10 @@ This application demonstrates how to:
 └─────────────────┼──────────────────────────────────────┘
                   │
                   ▼
-┌─────────────────────────────────────────────────────────┐
-│         Cloud Foundry Services                          │
+┌────────────────────────────────────────────────────────┐
+│         Cloud Foundry Services                         │
 │  - tanzu-gpt-oss-120b (GenAI LLM service)              │
-└─────────────────────────────────────────────────────────┘
+└────────────────────────────────────────────────────────┘
 ```
 
 ## Code Structure
@@ -391,9 +391,8 @@ cf logs cf-summarization-a2a --recent | grep -i error
 
 ## References
 
-- [Google A2A Protocol Specification](https://google.github.io/A2A/specification/)
+- [A2A Protocol Specification](https://a2a-protocol.org/dev/specification/)
 - [A2A Python SDK Tutorial](https://google.github.io/A2A/tutorials/python/1-introduction/)
-- [A2A Announcement](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)
 - [UV Buildpack](https://github.com/yannicklevederpvtl/uv-buildpack)
 - [LangChain Documentation](https://python.langchain.com/)
 
